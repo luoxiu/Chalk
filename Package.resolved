@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Rainbow",
+        "repositoryURL": "https://github.com/jianstm/Rainbow",
+        "state": {
+          "branch": null,
+          "revision": "0d5c270d10d6e5b5f66abc82f5961700b75a57af",
+          "version": "0.0.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
