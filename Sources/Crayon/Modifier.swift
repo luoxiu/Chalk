@@ -10,10 +10,11 @@ import Foundation
 public enum Modifier: UInt8 {
     case reset
     case bold
-    case dim
+    case faint              // aka dim, not widely supported.
     case italic
     case underline
-    case inverse = 7
-    case hidden
-    case strikethrough
+    case blink
+    case reverse = 7
+    case conceal            // aka hidden, not widely supported.
+    case crossedOut         // aka strikethrough
 }
