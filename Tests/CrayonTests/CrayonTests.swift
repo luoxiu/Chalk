@@ -10,7 +10,7 @@ final class CrayonTests: XCTestCase {
         XCTAssertEqual(crayon.red.bgGreen.underline.on("foo").raw, "\u{001B}[4m\u{001B}[31m\u{001B}[42mfoo\u{001B}[24m\u{001B}[39m\u{001B}[49m")
         XCTAssertEqual(crayon.underline.red.bgGreen.on("foo").raw, "\u{001B}[4m\u{001B}[31m\u{001B}[42mfoo\u{001B}[24m\u{001B}[39m\u{001B}[49m");
 
-        let nest = cy.red.on("a" + cy.yellow.on("b" + cy.green.on("c").raw + "b").raw + "c")
+        let nest = cy.red.on("a" + cy.yellow.on("b" + cy.green.on("c") + "b") + "c")
         XCTAssertEqual(nest.raw, "\u{001B}[31ma\u{001B}[33mb\u{001B}[32mc\u{001B}[39mb\u{001B}[39mc\u{001B}[39m")
     }
 

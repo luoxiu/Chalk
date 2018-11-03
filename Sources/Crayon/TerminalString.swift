@@ -39,6 +39,17 @@ extension TerminalString {
     }
 }
 
+extension TerminalString {
+
+    public static func + (lhs: String, rhs: TerminalString) -> String {
+        return lhs + rhs.raw
+    }
+
+    public static func + (lhs: TerminalString, rhs: String) -> String {
+        return lhs.raw + rhs
+    }
+}
+
 extension TerminalString: CustomStringConvertible, CustomDebugStringConvertible {
 
     public var description: String {
