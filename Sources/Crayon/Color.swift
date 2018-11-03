@@ -14,7 +14,18 @@ public protocol TerminalColor {
     var bgCode: String { get }
 }
 
-public enum BasicColor: UInt8 {
+extension TerminalColor {
+
+    var fgCloseCode: String {
+        return "\u{001B}[39m"
+    }
+
+    var bgCloseCode: String {
+        return "\u{001B}[49m"
+    }
+}
+
+public enum ANSI16Color: UInt8 {
     case black = 30
     case red
     case green
@@ -34,10 +45,10 @@ public enum BasicColor: UInt8 {
     case whiteBright
 }
 
-extension BasicColor: TerminalColor {
+extension ANSI16Color: TerminalColor {
     
     private func code(offset: UInt8) -> String {
-        return "\(rawValue + offset)"
+        return "\u{001B}[\(rawValue + offset)m"
     }
     
     public var fgCode: String {
@@ -57,11 +68,11 @@ extension RainbowColor: TerminalColor {
         switch TerminalColorSupportLevel.current {
         case .ansi16m:
             let rgba = self.rgba
-            return "\(38 + offset);2;\(rgba.red);\(rgba.green);\(rgba.blue)"
+            return "\u{001B}[\(38 + offset);2;\(rgba.red);\(rgba.green);\(rgba.blue)m"
         case .ansi256:
-            return "\(38 + offset);5;\(ansi256)"
+            return "\u{001B}[\(38 + offset);5;\(ansi256)m"
         case .ansi16:
-            return "\(UInt8(ansi16) + offset)"
+            return "\u{001B}[\(UInt8(ansi16) + offset)m"
         default:    return ""
         }
     }

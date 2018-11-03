@@ -20,17 +20,33 @@ public struct TerminalString {
 
 extension TerminalString {
     
-    var rendered: String {
+    public var raw: String {
         var codes = ""
+        var closeCodes = ""
         if let modifiers = style.modifiers {
-            codes.append(modifiers.map({ String($0.rawValue) }).joined(separator: ";"))
+            codes.append(modifiers.map({ $0.code }).joined())
+            closeCodes.append(modifiers.map({ $0.closeCode }).joined())
         }
         if let fg = style.fg {
-            codes.append(";\(fg.fgCode)")
+            codes.append(fg.fgCode)
+            closeCodes.append(fg.fgCloseCode)
         }
         if let bg = style.bg {
-            codes.append(";\(bg.bgCode)")
+            codes.append(bg.bgCode)
+            closeCodes.append(bg.bgCloseCode)
         }
-        return "\u{001B}[\(codes)m\(s)\u{001B}[0m"
+        return codes + s + closeCodes
+    }
+}
+
+extension TerminalString: CustomStringConvertible, CustomDebugStringConvertible {
+
+    public var description: String {
+        return raw
+    }
+
+    public var debugDescription: String {
+        // TODO: Print style infos.
+        return raw
     }
 }

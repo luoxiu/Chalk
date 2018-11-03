@@ -99,80 +99,80 @@ extension Style {
 
 extension Style {
 
-    private func fg(basic: BasicColor) -> Style {
+    private func fg(ansi16: ANSI16Color) -> Style {
         var style = self
-        style.fg = basic
+        style.fg = ansi16
         return style
     }
 
-    private func bg(basic: BasicColor) -> Style {
+    private func bg(ansi16: ANSI16Color) -> Style {
         var style = self
-        style.bg = basic
+        style.bg = ansi16
         return style
     }
     
     public var black: Style {
-        return fg(basic: .black)
+        return fg(ansi16: .black)
     }
     
     public var red: Style {
-        return fg(basic: .red)
+        return fg(ansi16: .red)
     }
     
     public var green: Style {
-        return fg(basic: .green)
+        return fg(ansi16: .green)
     }
     
     public var yellow: Style {
-        return fg(basic: .yellow)
+        return fg(ansi16: .yellow)
     }
     
     public var blue: Style {
-        return fg(basic: .blue)
+        return fg(ansi16: .blue)
     }
     
     public var magenta: Style {
-        return fg(basic: .magenta)
+        return fg(ansi16: .magenta)
     }
     
     public var cyan: Style {
-        return fg(basic: .cyan)
+        return fg(ansi16: .cyan)
     }
     
     public var white: Style {
-        return fg(basic: .white)
+        return fg(ansi16: .white)
     }
     
     public var blackBright: Style {
-        return fg(basic: .blackBright)
+        return fg(ansi16: .blackBright)
     }
     
     public var redBright: Style {
-        return fg(basic: .redBright)
+        return fg(ansi16: .redBright)
     }
     
     public var greenBright: Style {
-        return fg(basic: .greenBright)
+        return fg(ansi16: .greenBright)
     }
     
     public var yellowBright: Style {
-        return fg(basic: .yellowBright)
+        return fg(ansi16: .yellowBright)
     }
     
     public var blueBright: Style {
-        return fg(basic: .blueBright)
+        return fg(ansi16: .blueBright)
     }
     
     public var magentaBright: Style {
-        return fg(basic: .magentaBright)
+        return fg(ansi16: .magentaBright)
     }
     
     public var cyanBright: Style {
-        return fg(basic: .cyanBright)
+        return fg(ansi16: .cyanBright)
     }
     
     public var whiteBright: Style {
-        return fg(basic: .whiteBright)
+        return fg(ansi16: .whiteBright)
     }
     
     public var gray: Style {
@@ -180,67 +180,67 @@ extension Style {
     }
     
     public var bgBlack: Style {
-        return bg(basic: .black)
+        return bg(ansi16: .black)
     }
     
     public var bgRed: Style {
-        return bg(basic: .red)
+        return bg(ansi16: .red)
     }
     
     public var bgGreen: Style {
-        return bg(basic: .green)
+        return bg(ansi16: .green)
     }
     
     public var bgYellow: Style {
-        return bg(basic: .yellow)
+        return bg(ansi16: .yellow)
     }
     
     public var bgBlue: Style {
-        return bg(basic: .blue)
+        return bg(ansi16: .blue)
     }
     
     public var bgMagenta: Style {
-        return bg(basic: .magenta)
+        return bg(ansi16: .magenta)
     }
     
     public var bgCyan: Style {
-        return bg(basic: .cyan)
+        return bg(ansi16: .cyan)
     }
     
     public var bgWhite: Style {
-        return bg(basic: .white)
+        return bg(ansi16: .white)
     }
     
     public var bgBlackBright: Style {
-        return bg(basic: .blackBright)
+        return bg(ansi16: .blackBright)
     }
     
     public var bgRedBright: Style {
-        return bg(basic: .redBright)
+        return bg(ansi16: .redBright)
     }
     
     public var bgGreenBright: Style {
-        return bg(basic: .greenBright)
+        return bg(ansi16: .greenBright)
     }
     
     public var bgYellowBright: Style {
-        return bg(basic: .yellowBright)
+        return bg(ansi16: .yellowBright)
     }
     
     public var bgBlueBright: Style {
-        return bg(basic: .blueBright)
+        return bg(ansi16: .blueBright)
     }
     
     public var bgMagentaBright: Style {
-        return bg(basic: .magentaBright)
+        return bg(ansi16: .magentaBright)
     }
     
     public var bgCyanBright: Style {
-        return bg(basic: .cyanBright)
+        return bg(ansi16: .cyanBright)
     }
     
     public var bgWhiteBright: Style {
-        return bg(basic: .whiteBright)
+        return bg(ansi16: .whiteBright)
     }
     
     public var bgGray: Style {
