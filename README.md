@@ -1,5 +1,6 @@
 # Crayon
 
+<div>
 <a href="https://travis-ci.org/jianstm/Crayon">
   <img src="https://travis-ci.org/jianstm/Crayon.svg?branch=master">
 </a>
@@ -8,8 +9,9 @@
 </a>
 <img src="https://img.shields.io/badge/platform-iOS%20%7C%20macOS%20%7C%20watchOS%20%7C%20tvOS%20%7C%20Linux-lightgrey.svg">
 <img src="https://img.shields.io/github/license/jianstm/crayon.svg">
-
-
+</div>
+<br>
+<br>
 <div align="center">
     <img src="crayon.jpg">
     <br>
