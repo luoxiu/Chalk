@@ -61,3 +61,25 @@ extension TerminalString: CustomStringConvertible, CustomDebugStringConvertible 
         return raw
     }
 }
+
+extension TerminalString: Hashable {
+
+    public var hashValue: Int {
+        return raw.hashValue
+    }
+
+    public static func == (lhs: TerminalString, rhs: TerminalString) -> Bool {
+        return lhs.raw == rhs.raw
+    }
+}
+
+extension TerminalString {
+
+    public static func == (lhs: String, rhs: TerminalString) -> Bool {
+        return lhs == rhs.raw
+    }
+
+    public static func == (lhs: TerminalString, rhs: String) -> Bool {
+        return lhs.raw == rhs
+    }
+}
