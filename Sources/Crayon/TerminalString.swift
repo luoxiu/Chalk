@@ -9,8 +9,8 @@ import Foundation
 
 public struct TerminalString {
     
-    private let s: String
-    private let style: Style
+    let s: String
+    let style: Style
     
     init(s: String, style: Style) {
         self.s = s
@@ -18,7 +18,7 @@ public struct TerminalString {
     }
 }
 
-extension TerminalString {
+extension TerminalString: TerminalStringCompatible {
     
     public var raw: String {
         var codes = ""

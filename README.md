@@ -3,10 +3,12 @@
 <a href="https://travis-ci.org/jianstm/Crayon">
   <img src="https://travis-ci.org/jianstm/Crayon.svg?branch=master">
 </a>
-<br>
+<a href="https://github.com/jianstm/Crayon/releases">
+  <img src="https://img.shields.io/github/tag/jianstm/crayon.svg">
+</a>
+
 <div align="center">
-    <img src="crayon.png">
-    <br>
+    <img src="crayon.jpg">
     <br>
     <br>
     <strong>Expressive styling on terminal string.</strong>
@@ -16,36 +18,39 @@
 
 - Expressive API
 - 256/TrueColor support
-- Style nestable
-- Auto downgrading to terminal color level
+- Nestable
+- Auto downgrading to terminal color support level
 - No extensions on `String`
 - Built-in 100+ handpicked colors
 - rgb & hsl & hsv & hex
 
 ## Usage
 
-```swift
-print(crayon.cyan.on("cyan"))  // cy is an alias to crayon
+Crayon's API is very similar to [chalk](https://github.com/chalk/chalk) -- one of the most popular packages on npm, it's clean and focused.
 
-print(cy.red.bgBlue.on("red bgBlue"))
+
+```swift
+print(crayon.cyan.on("cyan"))  // `cy` is an alias to `crayon`
 
 print(cy.red.bgMagenta.bold.underline.on("red bgMagenta bild underline"))
 
-print(cy.fg(.coral).bg(.lightGreen).bold.on("coral lightGreen bold"))
+print(cy.red.on("!") + "error" + cy.green.on("o"))
 
-print(cy.fg(.rgb(0, 92, 197)).bg(.hex(0xf6f8fa)).bold.on("hello"))
+print(cy.fg(.coral).bg(.lightGreen).bold.on("hi"))
+
+print(cy.fg(.rgb(0, 92, 197)).bg(.hex(0xf6f8fa)).underline.on("meow"))
 
 print(cy.bgYellow.on("begin" + cy.red.bold.on("important") + "end"))
 
-
 let warn = { (s: String) in
-	return cy.white.bgYellow.on(s)
+    print(cy.white.bgYellow.on(s))
 }
 let error = { (s: String) in
-	return cy.red.bold.on(s)
+    print(cy.red.bold.on(s))
 }
-print(warn("this is a warning!"))
-print(error("something wrong!")
+
+warn("this is a warning!")
+error("something wrong!")
 ```
 
 ## Styles
@@ -97,6 +102,16 @@ cy.fg(.hsv(300, 50, 50))
 cy.bg(.hex(0x123456))
 cy.bg(.hex("#abc")
 cy.bg(.hex("#123456")
+```
+
+#### 100+ handpicked colors
+
+```swift
+cy.fg(.peachpuff)
+cy.fg(.plum)
+cy.bg(.coral)
+cy.bg(.fuchsia)
+//...
 ```
 
 ## Install
