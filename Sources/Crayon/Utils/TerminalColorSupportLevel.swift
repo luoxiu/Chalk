@@ -20,7 +20,7 @@ public enum TerminalColorSupportLevel {
             return .none
         }
         
-        let env = ProcessInfo().environment
+        let env = ProcessInfo.processInfo.environment
         
         if env["CI"] != nil {
             for ci in ["TRAVIS", "CIRCLECI", "APPVEYOR", "GITLAB_CI"] {
