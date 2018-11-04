@@ -6,6 +6,9 @@
 <a href="https://github.com/jianstm/Crayon/releases">
   <img src="https://img.shields.io/github/tag/jianstm/crayon.svg">
 </a>
+<img src="https://img.shields.io/badge/platform-iOS%20%7C%20macOS%20%7C%20watchOS%20%7C%20tvOS%20%7C%20Linux-lightgrey.svg">
+<img src="https://img.shields.io/github/license/jianstm/crayon.svg">
+
 
 <div align="center">
     <img src="crayon.jpg">
@@ -32,16 +35,24 @@ Crayon's API is very similar to [chalk](https://github.com/chalk/chalk) -- one o
 ```swift
 print(crayon.cyan.on("cyan"))  // `cy` is an alias to `crayon`
 
+// chainable
 print(cy.red.bgMagenta.bold.underline.on("red bgMagenta bild underline"))
 
+// combine terminal string and normal string
 print(cy.red.on("!") + "error" + cy.green.on("o"))
 
+// custom foreground color and background color with 100+ handpicked colors
 print(cy.fg(.coral).bg(.lightGreen).bold.on("hi"))
 
+// rgb & hsl & hsv & hex support
 print(cy.fg(.rgb(0, 92, 197)).bg(.hex(0xf6f8fa)).underline.on("meow"))
 
+// nestable
 print(cy.bgYellow.on("begin" + cy.red.bold.on("important") + "end"))
+print(cy.bgYellow.on("begin", cy.red.bold.on("important"), "end"))
 
+
+// define your own delightful output
 let warn = { (s: String) in
     print(cy.white.bgYellow.on(s))
 }
@@ -74,6 +85,8 @@ crossedOut         // aka strikethrough, not widely supported.
 #### Ansi16
 
 ```swift
+// with `bg` prefix will set background color
+
 black
 red
 green
@@ -122,10 +135,15 @@ dependencies: [
 ]
 ```
 
-## Contribute
-
-If you want to add new features, feel free to submit a pull request. Any contributing is welcome at all times!
 
 ## Acknowledge
 
 Inspired by the awesome javascript library [chalk](https://github.com/chalk/chalk).
+
+## Related
+
+- [Rainbow](https://github.com/jianstm/Rainbow) - 🌈 Color conversion and manipulation library for Swift with no dependence on UIKit/AppKit.
+
+## Contribute
+
+If you find a bug, open an issue, if you want to add new features, feel free to submit a pull request. Any contributing is welcome at all times!
