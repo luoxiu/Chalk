@@ -22,8 +22,8 @@ public struct Style {
 extension Style {
     
     public func on(_ s: TerminalStringCompatible...) -> TerminalString {
-        let raw = s.map({ $0.raw }).joined()
-        return TerminalString(s: raw, style: self)
+        let rendered = s.map({ $0.rendered }).joined()
+        return TerminalString(s: rendered, style: self)
     }
 }
 

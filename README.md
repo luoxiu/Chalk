@@ -77,7 +77,7 @@ faint              // aka dim, not widely supported.
 italic
 underline
 blink
-reverse = 7
+reverse
 conceal            // aka hidden, not widely supported.
 crossedOut         // aka strikethrough, not widely supported.
 ```

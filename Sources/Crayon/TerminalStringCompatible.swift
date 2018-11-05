@@ -9,10 +9,10 @@ import Foundation
 
 public protocol TerminalStringCompatible {
 
-    var raw: String { get }
+    var rendered: String { get }
 }
 
 extension String: TerminalStringCompatible {
 
-    public var raw: String { return self }
+    public var rendered: String { return self }
 }
