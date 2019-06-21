@@ -1,14 +1,14 @@
 # Crayon
 
 <div>
-<a href="https://travis-ci.org/jianstm/Crayon">
-  <img src="https://travis-ci.org/jianstm/Crayon.svg?branch=master">
+<a href="https://travis-ci.org/luoxiu/Crayon">
+  <img src="https://travis-ci.org/luoxiu/Crayon.svg?branch=master">
 </a>
-<a href="https://github.com/jianstm/Crayon/releases">
-  <img src="https://img.shields.io/github/tag/jianstm/crayon.svg">
+<a href="https://github.com/luoxiu/Crayon/releases">
+  <img src="https://img.shields.io/github/tag/luoxiu/crayon.svg">
 </a>
 <img src="https://img.shields.io/badge/platform-iOS%20%7C%20macOS%20%7C%20watchOS%20%7C%20tvOS%20%7C%20Linux-lightgrey.svg">
-<img src="https://img.shields.io/github/license/jianstm/crayon.svg">
+<img src="https://img.shields.io/github/license/luoxiu/crayon.svg">
 </div>
 <br>
 <br>
@@ -133,7 +133,7 @@ cy.bg(.fuchsia)
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/jianstm/Crayon", .upToNextMajor(from: "0.0.1"))
+    .package(url: "https://github.com/luoxiu/Crayon", .upToNextMajor(from: "0.0.1"))
 ]
 ```
 
@@ -144,7 +144,7 @@ Inspired by the awesome javascript library [chalk](https://github.com/chalk/chal
 
 ## Related
 
-- [Rainbow](https://github.com/jianstm/Rainbow) - 🌈 Color conversion and manipulation library for Swift with no dependence on UIKit/AppKit.
+- [Rainbow](https://github.com/luoxiu/Rainbow) - 🌈 Color conversion and manipulation library for Swift with no dependence on UIKit/AppKit.
 
 ## Contribute
 

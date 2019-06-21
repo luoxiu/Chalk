@@ -8,7 +8,7 @@ let package = Package(
         .library(name: "Crayon", targets: ["Crayon"]),
     ],
     dependencies: [
-         .package(url: "https://github.com/jianstm/Rainbow", .upToNextMajor(from: "0.0.1")),
+         .package(url: "https://github.com/luoxiu/Rainbow", .upToNextMajor(from: "0.0.1")),
     ],
     targets: [
         .target(name: "Crayon", dependencies: ["Rainbow"]),
