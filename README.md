@@ -133,7 +133,7 @@ ck.bg(.fuchsia)
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/luoxiu/Chalk", .upToNextMajor(from: "0.0.1"))
+    .package(url: "https://github.com/luoxiu/Chalk", from: "0.0.1")
 ]
 ```
 
