@@ -1,6 +1,6 @@
 //
 //  TerminalColorLevel.swift
-//  Crayon
+//  Chalk
 //
 //  Created by Quentin MED on 2018/11/1.
 //

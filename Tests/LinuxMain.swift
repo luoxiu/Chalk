@@ -1,7 +1,7 @@
 import XCTest
 
-import CrayonTests
+import ChalkTests
 
 var tests = [XCTestCaseEntry]()
-tests += CrayonTests.allTests()
+tests += ChalkTests.allTests()
 XCTMain(tests)

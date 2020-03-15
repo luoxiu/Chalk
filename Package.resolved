@@ -3,7 +3,7 @@
     "pins": [
       {
         "package": "Rainbow",
-        "repositoryURL": "https://github.com/jianstm/Rainbow",
+        "repositoryURL": "https://github.com/luoxiu/Rainbow",
         "state": {
           "branch": null,
           "revision": "177c6ebae4389c0363ea1bf62a7257151d53acbc",

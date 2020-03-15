@@ -1,17 +1,17 @@
-// swift-tools-version:4.2
+// swift-tools-version:5.1
 
 import PackageDescription
 
 let package = Package(
-    name: "Crayon",
+    name: "Chalk",
     products: [
-        .library(name: "Crayon", targets: ["Crayon"]),
+        .library(name: "Chalk", targets: ["Chalk"]),
     ],
     dependencies: [
-         .package(url: "https://github.com/luoxiu/Rainbow", .upToNextMajor(from: "0.0.1")),
+        .package(url: "https://github.com/luoxiu/Rainbow", from: "0.0.1"),
     ],
     targets: [
-        .target(name: "Crayon", dependencies: ["Rainbow"]),
-        .testTarget(name: "CrayonTests", dependencies: ["Crayon"]),
+        .target(name: "Chalk", dependencies: ["Rainbow"]),
+        .testTarget(name: "ChalkTests", dependencies: ["Chalk"]),
     ]
 )

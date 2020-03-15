@@ -1,13 +1,13 @@
 //
 //  TerminalString.swift
-//  Crayon
+//  Chalk
 //
 //  Created by Quentin MED on 2018/10/19.
 //
 
 import Foundation
 
-public let crayon = Style()
+public let Chalk = Style()
 public let cy = Style()
 
 public struct Style {
@@ -21,9 +21,9 @@ public struct Style {
 
 extension Style {
     
-    public func on(_ s: TerminalStringCompatible...) -> TerminalString {
-        let rendered = s.map({ $0.rendered }).joined()
-        return TerminalString(s: rendered, style: self)
+    public func on(_ s: TerminalStringConvertible...) -> TerminalString {
+        let rendered = s.map({ $0.terminalDescription }).joined()
+        return TerminalString(string: rendered, style: self)
     }
 }
 

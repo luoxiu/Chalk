@@ -1,6 +1,6 @@
 //
-//  String+Crayon.swift
-//  Crayon
+//  String+Chalk.swift
+//  Chalk
 //
 //  Created by Quentin MED on 2018/11/1.
 //

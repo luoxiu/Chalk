@@ -1,6 +1,6 @@
 //
 //  TerminalString.swift
-//  Crayon
+//  Chalk
 //
 //  Created by Quentin MED on 2018/11/2.
 //
@@ -9,18 +9,18 @@ import Foundation
 
 public struct TerminalString {
     
-    let s: String
+    let string: String
     let style: Style
     
-    init(s: String, style: Style) {
-        self.s = s
+    init(string: String, style: Style) {
+        self.string = string
         self.style = style
     }
 }
 
-extension TerminalString: TerminalStringCompatible {
+extension TerminalString: TerminalStringConvertible {
     
-    public var rendered: String {
+    public var terminalDescription: String {
         var codes = ""
         var closeCodes = ""
         if let modifiers = style.modifiers {
@@ -28,7 +28,7 @@ extension TerminalString: TerminalStringCompatible {
             closeCodes.append(modifiers.map({ $0.closeCode }).joined())
         }
 
-        var s = self.s
+        var s = self.string
         if let fg = style.fg {
             codes.append(fg.fgCode)
             if s.contains(fg.fgCloseCode) {
@@ -50,44 +50,35 @@ extension TerminalString: TerminalStringCompatible {
 extension TerminalString {
 
     public static func + (lhs: String, rhs: TerminalString) -> String {
-        return lhs + rhs.rendered
+        return lhs + rhs.terminalDescription
     }
 
     public static func + (lhs: TerminalString, rhs: String) -> String {
-        return lhs.rendered + rhs
+        return lhs.terminalDescription + rhs
     }
 }
 
 extension TerminalString: CustomStringConvertible, CustomDebugStringConvertible {
 
     public var description: String {
-        return rendered
+        return terminalDescription
     }
 
     public var debugDescription: String {
         // TODO: Print style infos.
-        return rendered
+        return terminalDescription
     }
 }
 
-extension TerminalString: Hashable {
-
-    public var hashValue: Int {
-        return rendered.hashValue
-    }
-
-    public static func == (lhs: TerminalString, rhs: TerminalString) -> Bool {
-        return lhs.rendered == rhs.rendered
-    }
-}
+extension TerminalString: Hashable { }
 
 extension TerminalString {
 
     public static func == (lhs: String, rhs: TerminalString) -> Bool {
-        return lhs == rhs.rendered
+        return lhs == rhs.terminalDescription
     }
 
     public static func == (lhs: TerminalString, rhs: String) -> Bool {
-        return lhs.rendered == rhs
+        return lhs.terminalDescription == rhs
     }
 }

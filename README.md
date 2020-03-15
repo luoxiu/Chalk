@@ -1,19 +1,19 @@
-# Crayon
+# Chalk
 
 <div>
-<a href="https://travis-ci.org/luoxiu/Crayon">
-  <img src="https://travis-ci.org/luoxiu/Crayon.svg?branch=master">
+<a href="https://travis-ci.org/luoxiu/Chalk">
+  <img src="https://travis-ci.org/luoxiu/Chalk.svg?branch=master">
 </a>
-<a href="https://github.com/luoxiu/Crayon/releases">
-  <img src="https://img.shields.io/github/tag/luoxiu/crayon.svg">
+<a href="https://github.com/luoxiu/Chalk/releases">
+  <img src="https://img.shields.io/github/tag/luoxiu/Chalk.svg">
 </a>
 <img src="https://img.shields.io/badge/platform-iOS%20%7C%20macOS%20%7C%20watchOS%20%7C%20tvOS%20%7C%20Linux-lightgrey.svg">
-<img src="https://img.shields.io/github/license/luoxiu/crayon.svg">
+<img src="https://img.shields.io/github/license/luoxiu/Chalk.svg">
 </div>
 <br>
 <br>
 <div align="center">
-    <img src="crayon.jpg">
+    <img src="Chalk.jpg">
     <br>
     <br>
     <strong>Expressive styling on terminal string.</strong>
@@ -31,35 +31,35 @@
 
 ## Usage
 
-Crayon's API is very similar to [chalk](https://github.com/chalk/chalk) -- one of the most popular packages on npm, it's clean and focused.
+Chalk's API is very similar to [chalk](https://github.com/chalk/chalk) -- one of the most popular packages on npm, it's clean and focused.
 
 
 ```swift
-print(crayon.cyan.on("cyan"))  // `cy` is an alias to `crayon`
+print(chalk.cyan.on("cyan"))  // `ck` is an alias to `chalk`
 
 // chainable
-print(cy.red.bgMagenta.bold.underline.on("red bgMagenta bild underline"))
+print(ck.red.bgMagenta.bold.underline.on("red bgMagenta bild underline"))
 
 // combine terminal string and normal string
-print(cy.red.on("!") + "error" + cy.green.on("o"))
+print(ck.red.on("!") + "error" + ck.green.on("o"))
 
 // custom foreground color and background color with 100+ handpicked colors
-print(cy.fg(.coral).bg(.lightGreen).bold.on("hi"))
+print(ck.fg(.coral).bg(.lightGreen).bold.on("hi"))
 
 // rgb & hsl & hsv & hex support
-print(cy.fg(.rgb(0, 92, 197)).bg(.hex(0xf6f8fa)).underline.on("meow"))
+print(ck.fg(.rgb(0, 92, 197)).bg(.hex(0xf6f8fa)).underline.on("meow"))
 
 // nestable
-print(cy.bgYellow.on("begin" + cy.red.bold.on("important") + "end"))
-print(cy.bgYellow.on("begin", cy.red.bold.on("important"), "end"))
+print(ck.bgYellow.on("begin" + ck.red.bold.on("important") + "end"))
+print(ck.bgYellow.on("begin", ck.red.bold.on("important"), "end"))
 
 
 // define your own delightful output
 let warn = { (s: String) in
-    print(cy.white.bgYellow.on(s))
+    print(ck.white.bgYellow.on(s))
 }
 let error = { (s: String) in
-    print(cy.red.bold.on(s))
+    print(ck.red.bold.on(s))
 }
 
 warn("this is a warning!")
@@ -111,21 +111,21 @@ whiteBright
 #### 256/TrueColoe
 
 ```swift
-cy.fg(.rgb(0, 100, 200))
-cy.fg(.hsl(300, 50, 50))
-cy.fg(.hsv(300, 50, 50))
-cy.bg(.hex(0x123456))
-cy.bg(.hex("#abc")
-cy.bg(.hex("#123456")
+ck.fg(.rgb(0, 100, 200))
+ck.fg(.hsl(300, 50, 50))
+ck.fg(.hsv(300, 50, 50))
+ck.bg(.hex(0x123456))
+ck.bg(.hex("#abc")
+ck.bg(.hex("#123456")
 ```
 
 #### 100+ handpicked colors
 
 ```swift
-cy.fg(.peachpuff)
-cy.fg(.plum)
-cy.bg(.coral)
-cy.bg(.fuchsia)
+ck.fg(.peachpuff)
+ck.fg(.plum)
+ck.bg(.coral)
+ck.bg(.fuchsia)
 //...
 ```
 
@@ -133,7 +133,7 @@ cy.bg(.fuchsia)
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/luoxiu/Crayon", .upToNextMajor(from: "0.0.1"))
+    .package(url: "https://github.com/luoxiu/Chalk", .upToNextMajor(from: "0.0.1"))
 ]
 ```
 
