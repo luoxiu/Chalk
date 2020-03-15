@@ -13,7 +13,7 @@
 <br>
 <br>
 <div align="center">
-    <img src="Chalk.jpg">
+    <img src="chalk.jpg">
     <br>
     <br>
     <strong>Expressive styling on terminal string.</strong>
