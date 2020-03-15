@@ -23,7 +23,7 @@
 
 - Expressive API
 - 256/TrueColor support
-- Nestable
+- Ability to nest styles
 - Auto downgrading to terminal color support level
 - No extensions on `String`
 - Built-in 100+ handpicked colors
@@ -35,7 +35,7 @@ Chalk's API is very similar to [chalk](https://github.com/chalk/chalk) -- one of
 
 
 ```swift
-print(chalk.cyan.on("cyan"))  // `ck` is an alias to `chalk`
+print(Chalk.cyan.on("cyan"))  // `ck` is an alias to `chalk`
 
 // chainable
 print(ck.red.bgMagenta.bold.underline.on("red bgMagenta bild underline"))
@@ -49,7 +49,7 @@ print(ck.fg(.coral).bg(.lightGreen).bold.on("hi"))
 // rgb & hsl & hsv & hex support
 print(ck.fg(.rgb(0, 92, 197)).bg(.hex(0xf6f8fa)).underline.on("meow"))
 
-// nestable
+// nest
 print(ck.bgYellow.on("begin" + ck.red.bold.on("important") + "end"))
 print(ck.bgYellow.on("begin", ck.red.bold.on("important"), "end"))
 
