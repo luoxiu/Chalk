@@ -2,7 +2,7 @@
 //  TerminalString.swift
 //  Chalk
 //
-//  Created by Quentin MED on 2018/11/2.
+//  Created by Quentin Jin on 2018/11/2.
 //
 
 import Foundation
@@ -65,12 +65,20 @@ extension TerminalString: CustomStringConvertible, CustomDebugStringConvertible 
     }
 
     public var debugDescription: String {
-        // TODO: Print style infos.
         return terminalDescription
     }
 }
 
-extension TerminalString: Hashable { }
+extension TerminalString: Hashable {
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(terminalDescription)
+    }
+    
+    public static func == (lhs: TerminalString, rhs: TerminalString) -> Bool {
+        lhs.terminalDescription == rhs.terminalDescription
+    }
+}
 
 extension TerminalString {
 

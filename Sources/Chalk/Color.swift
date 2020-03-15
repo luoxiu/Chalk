@@ -2,7 +2,7 @@
 //  Color.swift
 //  Chalk
 //
-//  Created by Quentin MED on 2018/10/19.
+//  Created by Quentin Jin on 2018/10/19.
 //
 
 import Foundation

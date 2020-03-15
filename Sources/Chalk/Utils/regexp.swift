@@ -1,13 +1,15 @@
 //
-//  String+Chalk.swift
+//  regexp.swift
 //  Chalk
 //
-//  Created by Quentin MED on 2018/11/1.
+//  Created by Quentin Jin on 2018/11/1.
 //
 
 import Foundation
 
-extension String {
+typealias RegExp = String
+
+extension RegExp {
 
     func test(_ s: String) -> Bool {
         guard let regexp = try? NSRegularExpression(pattern: self, options: []) else { return false }
