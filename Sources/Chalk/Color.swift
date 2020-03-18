@@ -10,8 +10,8 @@ import Foundation
 
 public protocol TerminalColor {
     
-    var fgCode: String { get }
-    var bgCode: String { get }
+    var fgOpenCode: String { get }
+    var bgOpenCode: String { get }
 }
 
 extension TerminalColor {
@@ -51,11 +51,11 @@ extension ANSI16Color: TerminalColor {
         return "\u{001B}[\(rawValue + offset)m"
     }
     
-    public var fgCode: String {
+    public var fgOpenCode: String {
         return code(offset: 0)
     }
     
-    public var bgCode: String {
+    public var bgOpenCode: String {
         return code(offset: 10)
     }
 }
@@ -65,23 +65,22 @@ public typealias RainbowColor = Rainbow.Color
 extension RainbowColor: TerminalColor {
     
     private func code(offset: UInt8) -> String {
-        switch TerminalColorSupportLevel.current {
+        switch TerminalSupportedColor.current {
         case .ansi16m:
             let rgba = self.rgba
             return "\u{001B}[\(38 + offset);2;\(rgba.red);\(rgba.green);\(rgba.blue)m"
         case .ansi256:
             return "\u{001B}[\(38 + offset);5;\(ansi256)m"
-        case .ansi16:
+        case .ansi16, .none:
             return "\u{001B}[\(UInt8(ansi16) + offset)m"
-        default:    return ""
         }
     }
 
-    public var fgCode: String {
+    public var fgOpenCode: String {
         return code(offset: 0)
     }
 
-    public var bgCode: String {
+    public var bgOpenCode: String {
         return code(offset: 10)
     }
 }

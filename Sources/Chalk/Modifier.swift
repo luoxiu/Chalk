@@ -21,7 +21,7 @@ public enum Modifier: UInt8 {
 
 extension Modifier {
 
-    var code: String {
+    var openCode: String {
         return "\u{001B}[\(rawValue)m"
     }
 

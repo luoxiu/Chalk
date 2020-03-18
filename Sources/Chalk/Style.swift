@@ -7,23 +7,47 @@
 
 import Foundation
 
-public let Chalk = Style()
+public let chalk = Style()
 public let ck = Style()
 
 public struct Style {
 
-    public var fg: TerminalColor?
+    public var fgColor: TerminalColor?
 
-    public var bg: TerminalColor?
+    public var bgColor: TerminalColor?
 
     public var modifiers: Set<Modifier>?
 }
 
 extension Style {
     
-    public func on(_ s: TerminalStringConvertible...) -> TerminalString {
-        let rendered = s.map({ $0.terminalDescription }).joined()
-        return TerminalString(string: rendered, style: self)
+    public func on(_ strings: String...) -> String {
+        switch TerminalSupportedColor.current {
+        case .none:
+            return strings.joined()
+        default:
+            return strings.map {
+                var codes = ""
+                var closeCodes = ""
+                if let modifiers = modifiers {
+                    codes.append(modifiers.map({ $0.openCode }).joined())
+                    closeCodes.append(modifiers.map({ $0.closeCode }).joined())
+                }
+
+                var string = $0
+                if let fg = fgColor {
+                    codes.append(fg.fgOpenCode)
+                    string.replacingOccurrences(of: fg.fgCloseCode, with: fg.fgOpenCode)
+                    closeCodes.append(fg.fgCloseCode)
+                }
+                if let bg = bgColor {
+                    codes.append(bg.bgOpenCode)
+                    string.replacingOccurrences(of: bg.bgCloseCode, with: bg.bgOpenCode)
+                    closeCodes.append(bg.bgCloseCode)
+                }
+                return codes + string + closeCodes
+            }.joined()
+        }
     }
 }
 
@@ -31,13 +55,13 @@ extension Style {
 
     public func fg(_ color: RainbowColor) -> Style {
         var style = self
-        style.fg = color
+        style.fgColor = color
         return style
     }
 
     public func bg(_ color: RainbowColor) -> Style {
         var style = self
-        style.bg = color
+        style.bgColor = color
         return style
     }
 }
@@ -47,9 +71,10 @@ extension Style {
     private func modify(_ modifier: Modifier) -> Style {
         var style = self
         if style.modifiers == nil {
-            style.modifiers = []
+            style.modifiers = [modifier]
+        } else {
+            style.modifiers!.insert(modifier)
         }
-        style.modifiers?.insert(modifier)
         return style
     }
     
@@ -102,13 +127,13 @@ extension Style {
 
     private func fg(ansi16: ANSI16Color) -> Style {
         var style = self
-        style.fg = ansi16
+        style.fgColor = ansi16
         return style
     }
 
     private func bg(ansi16: ANSI16Color) -> Style {
         var style = self
-        style.bg = ansi16
+        style.bgColor = ansi16
         return style
     }
     

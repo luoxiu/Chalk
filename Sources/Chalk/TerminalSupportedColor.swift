@@ -7,15 +7,22 @@
 
 import Foundation
 
+// test
+var __global_supported_color__: TerminalSupportedColor?
+
 // https://github.com/chalk/supports-color
 
-public enum TerminalColorSupportLevel {
+public enum TerminalSupportedColor {
     case none
     case ansi16
     case ansi256
     case ansi16m
     
-    public static var current: TerminalColorSupportLevel = {
+    public static var current: TerminalSupportedColor = {
+        if let level = __global_supported_color__ {
+            return level
+        }
+        
         if isatty(fileno(stdout)) == 0 {
             return .none
         }
