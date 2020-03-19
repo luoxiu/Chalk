@@ -21,11 +21,11 @@ public enum Modifier: UInt8 {
 
 extension Modifier {
 
-    var openCode: String {
+    public var openCode: String {
         return "\u{001B}[\(rawValue)m"
     }
 
-    var closeCode: String {
+    public var closeCode: String {
         var c: Int
         switch self {
         case .reset:        c = 0

@@ -20,17 +20,29 @@ public struct Style {
 }
 
 extension Style {
-
-    public func fg(_ color: RainbowColor) -> Style {
+    
+    private func on(_ other: Style) -> Style {
         var style = self
-        style.fgColor = color
+        style.fgColor = other.fgColor ?? style.fgColor
+        style.bgColor = other.bgColor ?? style.bgColor
+        if style.modifiers == nil {
+            style.modifiers = other.modifiers
+        } else {
+            style.modifiers?.formUnion(other.modifiers ?? [])
+        }
         return style
     }
-
-    public func bg(_ color: RainbowColor) -> Style {
-        var style = self
-        style.bgColor = color
-        return style
+    
+    public func on(_ terminalStringConvertibles: TerminalStringConvertible...) -> TerminalString {
+        let strings = terminalStringConvertibles
+            .flatMap {
+                $0.terminalString
+                    .strings
+                    .map {
+                        ($0.0, on($0.1))
+                    }
+            }
+        return TerminalString(strings: strings)
     }
 }
 
@@ -68,6 +80,10 @@ extension Style {
     
     public var underline: Style {
         return modify(.underline)
+    }
+    
+    public var blink: Style {
+        return modify(.blink)
     }
     
     public var reverse: Style {
@@ -239,5 +255,20 @@ extension Style {
     
     public var bgGray: Style {
         return bgBlackBright
+    }
+}
+
+extension Style {
+
+    public func fg(_ color: RainbowColor) -> Style {
+        var style = self
+        style.fgColor = color
+        return style
+    }
+
+    public func bg(_ color: RainbowColor) -> Style {
+        var style = self
+        style.bgColor = color
+        return style
     }
 }

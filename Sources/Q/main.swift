@@ -8,32 +8,39 @@
 import Foundation
 import Chalk
 
-extension String {
-    
-    var success: String {
-        return ck.green.on(self).description
-    }
-    
-    var failure: String {
-        return ck.red.on(self).description
-    }
-}
+let name = """
+  ______  __    __       ___       __       __  ___
+ /      ||  |  |  |     /   \\     |  |     |  |/  /
+|  ,----'|  |__|  |    /  ^  \\    |  |     |  '  /
+|  |     |   __   |   /  /_\\  \\   |  |     |    <
+|  `----.|  |  |  |  /  _____  \\  |  `----.|  .  \\
+ \\______||__|  |__| /__/     \\__\\ |_______||__|\\__\\
+"""
 
-let fmt = DateFormatter()
-fmt.locale = Locale(identifier: "en_US_POSIX")
-fmt.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+//print(
+//    name.map {
+//            ck.fg(.random).on(String($0))
+//        }
+//        .reduce(TerminalString()) {
+//            $0 + $1
+//        }
+//)
 
-extension Date {
-    var timestamp: String {
-        return fmt.string(from: self)
-    }
-}
 
-func say(_ msg: String) {
-    print(ck.cyan.dim.on(Date().timestamp), msg)
-}
+//print(chalk.cyan.on("cyan"))  // `ck` is an alias to `chalk`
+//
+//// chainable
+//print(ck.red.bgBlue.italic.underline.on("red bgBlue italic underline"))
+//
+//// combine terminal string and string
+//print(ck.red.on("ERROR") + " something went wrong. " + ck.green.on("but no worry! I will..."))
+//
+//// rgb & hsl & hsv & hex support
+//print(ck.fg(.rgb(0, 92, 197)).bg(.hex(0xFA4B8B)).on("meow"))
+//
+//// custom foreground color and background color with 100+ handpicked colors
+//print(ck.fg(.darkMagenta).bg(.lightGoldenRodYellow).bold.on("hi"))
 
-say("success".success)
-say("failure".failure)
-
-print(ck.red.on("a" + ck.yellow.on("b" + ck.green.on("c") + "b") + "c"))
+// nest
+print(ck.magenta.underline.on("begin" + ck.red.bold.on("important") + "end"))
+print(ck.magenta.underline.on("begin", ck.red.bold.on("important"), "end"))

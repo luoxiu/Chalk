@@ -11,6 +11,14 @@ public struct TerminalString {
     
     let strings: [(String, Style)]
     
+    init(strings: [(String, Style)]) {
+        self.strings = strings
+    }
+    
+    public init() {
+        self.strings = []
+    }
+        
     public var string: String {
         strings.map { $0.0 }.joined()
     }
@@ -27,8 +35,8 @@ extension TerminalString: CustomStringConvertible {
                 var openCodes: [String] = []
                 var closeCodes: [String] = []
                 if let modifiers = $0.1.modifiers {
-                    openCodes.append(contentsOf: modifiers.map({ $0.openCode }))
-                    closeCodes.append(contentsOf: modifiers.map({ $0.closeCode }))
+                    openCodes.append(contentsOf: modifiers.map { $0.openCode } )
+                    closeCodes.append(contentsOf: modifiers.map { $0.closeCode } )
                 }
                 if let color = $0.1.fgColor {
                     openCodes.append(color.fgOpenCode)
@@ -45,30 +53,14 @@ extension TerminalString: CustomStringConvertible {
     }
 }
 
-// MAKR: Style
-extension Style {
-    
-    private func on(_ other: Style) -> Style {
-        var style = self
-        style.fgColor = other.fgColor ?? style.fgColor
-        style.bgColor = other.bgColor ?? style.bgColor
-        if style.modifiers == nil {
-            style.modifiers = other.modifiers
-        } else {
-            style.modifiers?.formUnion(modifiers ?? [])
-        }
-        return style
-    }
-    
-    public func on(_ terminalStringConvertibles: TerminalStringConvertible...) -> TerminalString {
-        let strings = terminalStringConvertibles
-            .flatMap {
-                $0.terminalString
-                    .strings
-                    .map {
-                        ($0.0, self.on($0.1))
-                    }
-            }
-        return TerminalString(strings: strings)
-    }
+public func + (a: TerminalString, b: TerminalString) -> TerminalString {
+    TerminalString(strings: a.strings + b.strings)
+}
+
+public func + (a: TerminalString, b: String) -> TerminalString {
+    a + b.terminalString
+}
+
+public func + (a: String, b: TerminalString) -> TerminalString {
+    a.terminalString + b
 }

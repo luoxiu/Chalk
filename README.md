@@ -23,47 +23,34 @@
 
 - Expressive API
 - 256/TrueColor support
-- Ability to nest styles
-- Auto downgrading to terminal color support level
+- Nest styles
+- Auto downgrading to terminal supported color
 - No extensions on `String`
-- Built-in 100+ handpicked colors
 - rgb & hsl & hsv & hex
+- Built-in 100+ handpicked colors
 
 ## Usage
 
-Chalk's API is very similar to [chalk](https://github.com/chalk/chalk) -- one of the most popular packages on npm, it's clean and focused.
-
+Chalk's API is very similar to [chalk](https://github.com/chalk/chalk) -- one of the most popular packages on npm.
 
 ```swift
-print(Chalk.cyan.on("cyan"))  // `ck` is an alias to `chalk`
+print(chalk.cyan.on("cyan"))  // `ck` is an alias to `chalk`
 
 // chainable
-print(ck.red.bgMagenta.bold.underline.on("red bgMagenta bild underline"))
+print(ck.red.bgBlue.italic.underline.on("red bgBlue italic underline"))
 
-// combine terminal string and normal string
-print(ck.red.on("!") + "error" + ck.green.on("o"))
-
-// custom foreground color and background color with 100+ handpicked colors
-print(ck.fg(.coral).bg(.lightGreen).bold.on("hi"))
+// combine terminal string and string
+print(ck.red.on("ERROR") + " something went wrong. " + ck.green.on("but no worry! I will..."))
 
 // rgb & hsl & hsv & hex support
-print(ck.fg(.rgb(0, 92, 197)).bg(.hex(0xf6f8fa)).underline.on("meow"))
+print(ck.fg(.rgb(0, 92, 197)).bg(.hex(0xFA4B8B)).on("meow"))
+
+// custom foreground color and background color with 100+ handpicked colors
+print(ck.fg(.darkMagenta).bg(.lightGoldenRodYellow).bold.on("hi"))
 
 // nest
-print(ck.bgYellow.on("begin" + ck.red.bold.on("important") + "end"))
-print(ck.bgYellow.on("begin", ck.red.bold.on("important"), "end"))
-
-
-// define your own delightful output
-let warn = { (s: String) in
-    print(ck.white.bgYellow.on(s))
-}
-let error = { (s: String) in
-    print(ck.red.bold.on(s))
-}
-
-warn("this is a warning!")
-error("something wrong!")
+print(ck.magenta.underline.on("begin" + ck.red.bold.on("important") + "end"))
+print(ck.magenta.underline.on("begin", ck.red.bold.on("important"), "end"))
 ```
 
 ## Styles
@@ -115,8 +102,8 @@ ck.fg(.rgb(0, 100, 200))
 ck.fg(.hsl(300, 50, 50))
 ck.fg(.hsv(300, 50, 50))
 ck.bg(.hex(0x123456))
-ck.bg(.hex("#abc")
 ck.bg(.hex("#123456")
+ck.bg(.hex("#abc")
 ```
 
 #### 100+ handpicked colors

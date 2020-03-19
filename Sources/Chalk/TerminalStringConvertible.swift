@@ -24,10 +24,3 @@ extension String: TerminalStringConvertible {
     }
 }
 
-public func + (a: TerminalString, b: String) -> TerminalString {
-    TerminalString(strings: a.strings + b.terminalString.strings)
-}
-
-public func + (a: String, b: TerminalString) -> TerminalString {
-    TerminalString(strings: a.terminalString.strings + b.strings)
-}

@@ -8,7 +8,7 @@
 import Foundation
 
 // test
-var __preset_supported_color__: TerminalSupportedColor?
+var __preset_supported_color__: TerminalSupportedColor? = .ansi16m
 
 // https://github.com/chalk/supports-color
 

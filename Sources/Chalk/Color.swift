@@ -16,11 +16,11 @@ public protocol TerminalColor {
 
 extension TerminalColor {
 
-    var fgCloseCode: String {
+    public var fgCloseCode: String {
         return "\u{001B}[39m"
     }
 
-    var bgCloseCode: String {
+    public var bgCloseCode: String {
         return "\u{001B}[49m"
     }
 }
