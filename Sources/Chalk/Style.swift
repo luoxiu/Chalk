@@ -20,38 +20,6 @@ public struct Style {
 }
 
 extension Style {
-    
-    public func on(_ strings: String...) -> String {
-        switch TerminalSupportedColor.current {
-        case .none:
-            return strings.joined()
-        default:
-            return strings.map {
-                var codes = ""
-                var closeCodes = ""
-                if let modifiers = modifiers {
-                    codes.append(modifiers.map({ $0.openCode }).joined())
-                    closeCodes.append(modifiers.map({ $0.closeCode }).joined())
-                }
-
-                var string = $0
-                if let fg = fgColor {
-                    codes.append(fg.fgOpenCode)
-                    string.replacingOccurrences(of: fg.fgCloseCode, with: fg.fgOpenCode)
-                    closeCodes.append(fg.fgCloseCode)
-                }
-                if let bg = bgColor {
-                    codes.append(bg.bgOpenCode)
-                    string.replacingOccurrences(of: bg.bgCloseCode, with: bg.bgOpenCode)
-                    closeCodes.append(bg.bgCloseCode)
-                }
-                return codes + string + closeCodes
-            }.joined()
-        }
-    }
-}
-
-extension Style {
 
     public func fg(_ color: RainbowColor) -> Style {
         var style = self

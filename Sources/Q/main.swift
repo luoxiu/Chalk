@@ -6,7 +6,7 @@
 //
 
 import Foundation
-@testable import Chalk
+import Chalk
 
 extension String {
     
@@ -19,21 +19,21 @@ extension String {
     }
 }
 
-func say(_ msg: String) {
-    print(ck.cyan.bold.on("Q:"), msg)
+let fmt = DateFormatter()
+fmt.locale = Locale(identifier: "en_US_POSIX")
+fmt.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+
+extension Date {
+    var timestamp: String {
+        return fmt.string(from: self)
+    }
 }
 
-Chalk.__global_supported_color__ = .ansi16m
+func say(_ msg: String) {
+    print(ck.cyan.dim.on(Date().timestamp), msg)
+}
 
 say("success".success)
 say("failure".failure)
-
-let s = ck.cyan.underline.on("blue underline", ck.fg(.black).bg(.pink).bold.on("pink white bold"), ck.italic.crossedOut.on("italic crossed out"))
-print(s)
-
-print(ck.red.on("foo", ck.underline.bgBlue.on("bar"), "!"))
-
-print(TerminalSupportedColor.current)
-print(ck.red.on("foo", ck.red.bold.on("bar"), ck.blue.bgYellow.on("foo"), "bar"))
 
 print(ck.red.on("a" + ck.yellow.on("b" + ck.green.on("c") + "b") + "c"))
