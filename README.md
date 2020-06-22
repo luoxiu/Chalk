@@ -27,7 +27,7 @@
 - Auto downgrading to terminal supported color
 - No extensions on `String`
 - rgb & hsl & hsv & hex
-- Built-in 100+ handpicked colors
+- Built-in 100+ beautiful colors
 
 ## Usage
 
@@ -71,6 +71,8 @@ crossedOut         // aka strikethrough, not widely supported.
 
 ### Colors
 
+The powerful color system is built on [Rainbow](https://github.com/luoxiu/Rainbow).
+
 #### Ansi16
 
 ```swift
@@ -106,13 +108,16 @@ ck.bg(.hex("#123456")
 ck.bg(.hex("#abc")
 ```
 
-#### 100+ handpicked colors
+#### Built-in 100+ beautiful colors
 
 ```swift
-ck.fg(.peachpuff)
-ck.fg(.plum)
-ck.bg(.coral)
-ck.bg(.fuchsia)
+let color = Color.Material.red50
+let color = Color.Material.purple500
+let color = Color.CSS.navy
+let color = Color.CSS.tomato
+
+ck.fg(color)
+ck.bg(color)
 //...
 ```
 
@@ -120,7 +125,7 @@ ck.bg(.fuchsia)
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/luoxiu/Chalk", from: "0.0.1")
+    .package(url: "https://github.com/luoxiu/Chalk", from: "0.1.0")
 ]
 ```
 
