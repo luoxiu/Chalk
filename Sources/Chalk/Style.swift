@@ -17,11 +17,19 @@ public struct Style {
     public var bgColor: TerminalColor?
 
     public var modifiers: Set<Modifier>?
+    
+    public init(fgColor: TerminalColor? = nil,
+                bgColor: TerminalColor? = nil,
+                modifiers: Set<Modifier>? = nil) {
+        self.fgColor = fgColor
+        self.bgColor = bgColor
+        self.modifiers = modifiers
+    }
 }
 
 extension Style {
     
-    private func on(_ other: Style) -> Style {
+    public func on(_ other: Style) -> Style {
         var style = self
         style.fgColor = other.fgColor ?? style.fgColor
         style.bgColor = other.bgColor ?? style.bgColor
@@ -48,7 +56,7 @@ extension Style {
 
 extension Style {
 
-    private func modify(_ modifier: Modifier) -> Style {
+    public func modify(_ modifier: Modifier) -> Style {
         var style = self
         if style.modifiers == nil {
             style.modifiers = [modifier]
@@ -109,13 +117,13 @@ extension Style {
 
 extension Style {
 
-    private func fg(ansi16: ANSI16Color) -> Style {
+    public func fg(ansi16: ANSI16Color) -> Style {
         var style = self
         style.fgColor = ansi16
         return style
     }
 
-    private func bg(ansi16: ANSI16Color) -> Style {
+    public func bg(ansi16: ANSI16Color) -> Style {
         var style = self
         style.bgColor = ansi16
         return style
@@ -267,6 +275,18 @@ extension Style {
     }
 
     public func bg(_ color: RainbowColor) -> Style {
+        var style = self
+        style.bgColor = color
+        return style
+    }
+    
+    public func fg(_ color: ANSI16Color) -> Style {
+        var style = self
+        style.fgColor = color
+        return style
+    }
+
+    public func bg(_ color: ANSI16Color) -> Style {
         var style = self
         style.bgColor = color
         return style

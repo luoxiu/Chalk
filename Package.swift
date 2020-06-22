@@ -9,7 +9,7 @@ let package = Package(
         .executable(name: "chalk-app", targets: ["chalk-app"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/luoxiu/Rainbow", from: "0.0.1"),
+        .package(url: "https://github.com/luoxiu/Rainbow", from: "0.1.0"),
     ],
     targets: [
         .target(name: "Chalk", dependencies: ["Rainbow"]),
