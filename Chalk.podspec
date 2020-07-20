@@ -17,5 +17,7 @@ Pod::Spec.new do |s|
     
     s.source              = { git: s.homepage + '.git', tag: s.version }
     s.source_files        = 'Sources/Chalk/**/*.swift'
+
+    s.dependency 'RainbowPod', '~> 0.1.0'
 end
   
