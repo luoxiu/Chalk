@@ -6,7 +6,12 @@
 //
 
 import Foundation
+
+#if COCOAPODS
+@_exported import RainbowPod
+#else
 @_exported import Rainbow
+#endif
 
 public protocol TerminalColor {
     
