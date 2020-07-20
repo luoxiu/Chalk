@@ -9,8 +9,10 @@ import Foundation
 
 #if COCOAPODS
 @_exported import RainbowPod
+public typealias RainbowColor = RainbowPod.Color
 #else
 @_exported import Rainbow
+public typealias RainbowColor = Rainbow.Color
 #endif
 
 public protocol TerminalColor {
@@ -64,8 +66,6 @@ extension ANSI16Color: TerminalColor {
         return code(offset: 10)
     }
 }
-
-public typealias RainbowColor = Rainbow.Color
 
 extension RainbowColor: TerminalColor {
     
