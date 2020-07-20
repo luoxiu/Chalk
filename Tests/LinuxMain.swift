@@ -3,5 +3,6 @@ import XCTest
 import ChalkTests
 
 var tests = [XCTestCaseEntry]()
-tests += ChalkTests.allTests()
+tests += ChalkTests.__allTests()
+
 XCTMain(tests)

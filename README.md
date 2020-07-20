@@ -1,8 +1,8 @@
 # Chalk
 
 <div>
-<a href="https://travis-ci.org/luoxiu/Chalk">
-  <img src="https://travis-ci.org/luoxiu/Chalk.svg?branch=master">
+<a href="https://github.com/luoxiu/Chalk/actions">
+  <img src="https://github.com/luoxiu/Chalk/workflows/Swift/badge.svg">
 </a>
 <a href="https://github.com/luoxiu/Chalk/releases">
   <img src="https://img.shields.io/github/tag/luoxiu/Chalk.svg">
@@ -127,6 +127,10 @@ ck.bg(color)
 dependencies: [
     .package(url: "https://github.com/luoxiu/Chalk", from: "0.1.0")
 ]
+```
+
+```ruby
+pod 'Chalk', '~> 0.1.0'
 ```
 
 

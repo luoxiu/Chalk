@@ -15,8 +15,4 @@ final class ChalkTests: XCTestCase {
         let nest = ck.red.on("a" + ck.yellow.on("b" + ck.green.on("c") + "b") + "c")
         XCTAssertEqual(nest.description, "\u{001B}[31ma\u{001B}[39m\u{001B}[33mb\u{001B}[39m\u{001B}[32mc\u{001B}[39m\u{001B}[33mb\u{001B}[39m\u{001B}[31mc\u{001B}[39m")
     }
-
-    static var allTests = [
-        ("testChalk", testChalk),
-    ]
 }
