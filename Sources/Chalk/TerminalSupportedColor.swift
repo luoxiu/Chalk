@@ -29,6 +29,10 @@ public enum TerminalSupportedColor {
         
         let env = ProcessInfo.processInfo.environment
         
+        if let name = env["XPC_SERVICE_NAME"], name.starts(with: "com.apple.dt.Xcode") {
+            return .none
+        }
+        
         if env["CI"] != nil {
             for ci in ["TRAVIS", "CIRCLECI", "APPVEYOR", "GITLAB_CI"] {
                 if env[ci] != nil { return .ansi16 }
