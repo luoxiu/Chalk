@@ -13,6 +13,7 @@ final class ChalkTests: XCTestCase {
         XCTAssertEqual(chalk.underline.red.bgGreen.on("foo").description, "\u{001B}[4m\u{001B}[31m\u{001B}[42mfoo\u{001B}[24m\u{001B}[39m\u{001B}[49m")
 
         let nest = ck.red.on("a" + ck.yellow.on("b" + ck.green.on("c") + "b") + "c")
-        XCTAssertEqual(nest.description, "\u{001B}[31ma\u{001B}[39m\u{001B}[33mb\u{001B}[39m\u{001B}[32mc\u{001B}[39m\u{001B}[33mb\u{001B}[39m\u{001B}[31mc\u{001B}[39m")
+        XCTAssertEqual(nest.string, "abcbc")
+        XCTAssertEqual(nest.styledString, "\u{001B}[31ma\u{001B}[39m\u{001B}[33mb\u{001B}[39m\u{001B}[32mc\u{001B}[39m\u{001B}[33mb\u{001B}[39m\u{001B}[31mc\u{001B}[39m")
     }
 }

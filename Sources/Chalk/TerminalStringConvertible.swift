@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by jinxiangqiu on 19/3/2020.
-//
-
 public protocol TerminalStringConvertible {
     
     var terminalString: TerminalString { get }
