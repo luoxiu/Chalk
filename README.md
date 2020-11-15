@@ -125,12 +125,12 @@ ck.bg(color)
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/luoxiu/Chalk", from: "0.1.0")
+    .package(url: "https://github.com/luoxiu/Chalk", from: "0.2.0")
 ]
 ```
 
 ```ruby
-pod 'Chalk', '~> 0.1.0'
+pod 'Chalk', '~> 0.2.0'
 ```
 
 
