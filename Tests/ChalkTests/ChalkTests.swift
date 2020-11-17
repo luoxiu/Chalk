@@ -1,10 +1,10 @@
-import XCTest
 @testable import Chalk
+import XCTest
 
 final class ChalkTests: XCTestCase {
     func testChalk() {
         __preset_supported_color__ = .ansi16m
-        
+
         XCTAssertEqual(chalk.underline.on("foo").description, "\u{001B}[4mfoo\u{001B}[24m".description)
         XCTAssertEqual(chalk.red.on("foo").description, "\u{001B}[31mfoo\u{001B}[39m".description)
         XCTAssertEqual(chalk.bgRed.on("foo").description, "\u{001B}[41mfoo\u{001B}[49m".description)

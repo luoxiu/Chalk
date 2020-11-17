@@ -1,5 +1,5 @@
-import Foundation
 import Chalk
+import Foundation
 
 let name = """
   ______  __    __       ___       __       __  ___
@@ -12,10 +12,9 @@ let name = """
 
 print(
     name.map {
-            ck.fg(.random).on(String($0))
-        }
-        .reduce(TerminalString()) {
-            $0 + $1
-        }
+        ck.fg(.random).on(String($0))
+    }
+    .reduce(TerminalString()) {
+        $0 + $1
+    }
 )
-

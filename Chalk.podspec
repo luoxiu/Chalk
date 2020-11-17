@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name                = 'Chalk'
-    s.version             = '0.1.3'
+    s.version             = '0.2.1'
     s.summary             = 'Expressive styling on terminal string. (chalk for swift)'
     s.homepage            = 'https://github.com/luoxiu/Chalk'
   

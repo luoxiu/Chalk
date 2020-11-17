@@ -1,28 +1,27 @@
 import Foundation
 
 public struct TerminalString {
-    
     let strings: [(String, Style)]
-    
+
     init(strings: [(String, Style)]) {
         self.strings = strings
     }
-    
+
     public init() {
-        self.strings = []
+        strings = []
     }
-        
+
     public var string: String {
-        strings.map { $0.0 }.joined()
+        strings.map(\.0).joined()
     }
-    
+
     public var styledString: String {
         strings.map {
             var openCodes: [String] = []
             var closeCodes: [String] = []
             if let modifiers = $0.1.modifiers {
-                openCodes.append(contentsOf: modifiers.map { $0.openCode } )
-                closeCodes.append(contentsOf: modifiers.map { $0.closeCode } )
+                openCodes.append(contentsOf: modifiers.map(\.openCode))
+                closeCodes.append(contentsOf: modifiers.map(\.closeCode))
             }
             if let color = $0.1.fgColor {
                 openCodes.append(color.fgOpenCode)
@@ -38,7 +37,6 @@ public struct TerminalString {
 }
 
 extension TerminalString: CustomStringConvertible {
-    
     public var description: String {
         switch TerminalSupportedColor.current {
         case .none:
